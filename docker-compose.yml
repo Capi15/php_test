@@ -15,7 +15,7 @@ services:
     links:
         - mysql
     environment:
-        - VIRTUAL_HOST=parques
+        - VIRTUAL_HOST=test_host
 
   mysql:
     container_name: mysql
