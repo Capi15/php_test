@@ -2,9 +2,6 @@ version: "3.9"
 services:
   web:
     build: .
-    image: bruno15/tests
-    volumes:
-        - ./:/var/www/html
     ports:
         - '8080:80'
         - '8081:443'
@@ -32,6 +29,3 @@ services:
         SERVICE_NAME: mysql
     ports:
         - '3307:3306'
-
-volumes:
-    my-datavolume:
