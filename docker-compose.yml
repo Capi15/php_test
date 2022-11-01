@@ -3,14 +3,14 @@ services:
   web:
     build: .
     image: bruno15/tests:latest
-    volumes:
-        - ./target:/var/www/html
     ports:
         - '8080:80'
         - '8081:443'
     expose:
         - '8080'
         - '8081'
+    volumes:
+        - html_files:/var/www/html
     depends_on:
         - mysql
     links:
@@ -23,7 +23,7 @@ services:
     image: mysql:8
     command: --default-authentication-plugin=mysql_native_password
     volumes:
-        - ./data/db:/var/lib/mysql
+        - mysql_data:/var/lib/mysql
 
     environment:
         MYSQL_DATABASE: test_db
@@ -33,4 +33,5 @@ services:
     ports:
         - '3307:3306'
 volumes:
-  html_files:
+    html_files:
+    mysql_data:
