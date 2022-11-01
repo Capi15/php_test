@@ -2,7 +2,7 @@ version: "3.9"
 services:
   web:
     build: .
-    image: bruno15/tests
+    image: bruno15/tests:latest
     volumes:
         - ./target:/var/www/html
     ports:
@@ -32,3 +32,5 @@ services:
         SERVICE_NAME: mysql
     ports:
         - '3307:3306'
+volumes:
+  html_files:
